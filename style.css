@@ -43,14 +43,25 @@ select {
   border-radius: 5px;
   margin-bottom: 12px;
   border: 2px solid hsl(0, 0%, 90%);
+  background-color: hsl(0, 0%, 98%);
 }
 
 #initial-deposit {
   width: 55%;
+  padding-left: 20px;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"><text x="0" y="18" font-family="Arial" font-size="24" fill="hsl(0, 0%, 70%)">$</text></svg>');
+  background-repeat: no-repeat;
+  background-position: 10px 50%;
+  background-size: 20px 20px;
 }
 
 #contribution-amount {
   width: 80%;
+  padding-left: 20px;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"><text x="0" y="18" font-family="Arial" font-size="24" fill="hsl(0, 0%, 70%)">$</text></svg>');
+  background-repeat: no-repeat;
+  background-position: 10px 50%;
+  background-size: 20px 20px;
 }
 
 #contribution-frequency {
@@ -63,6 +74,11 @@ select {
 
 #rate-of-return {
   width: 55%;
+  padding-left: 20px;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"><text x="0" y="18" font-family="Arial" font-size="24" fill="hsl(0, 0%, 70%)">%</text></svg>');
+  background-repeat: no-repeat;
+  background-position: 10px 50%;
+  background-size: 20px 20px;
 }
 
 #compound-frequency {
