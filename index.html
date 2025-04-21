@@ -13,41 +13,36 @@
 </head>
 
 <body>
-  <nav>
-    <h1>Compound Interest Calculator</h1>
-  </nav>
-
+  <h1>Compound Interest Calculator</h1>
   <form>
-    <label for="initial-deposit">Initial Deposit ($)</label>
+    <label for="initial-deposit">Initial Deposit</label>
     <input type="number" id="initial-deposit" required>
 
-    <label for="contribution-amount">Contribution Amount ($)</label>
+    <label for="contribution-amount">Contribution Amount</label>
     <input type="number" id="contribution-amount" required>
 
     <label for="contribution-frequency">Contribution Frequency</label>
-    <select id="contribution-frequency">
-      <option value="annualy">Annualy</option>
+    <select id="contribution-frequency" required>
       <option value="monthly">Monthly</option>
+      <option value="annualy">Annualy</option>
     </select>
 
     <label for="years-of-growth">Years of Growth</label>
     <input type="number" id="years-of-growth" required>
 
-    <label for="estimated-rate-of-return">Estimated Rate of Return (%)</label>
-    <input type="number" id="estimated-rate-of-return" required>
+    <label for="rate-of-return">Rate of Return</label>
+    <input type="number" id="rate-of-return" required>
 
     <label for="compound-frequency">Compound Frequency</label>
     <select id="compound-frequency" required>
-      <option value="annualy">Annualy</option>
+      <option value="daily">Daily</option>
       <option value="monthly">Monthly</option>
     </select>
 
     <button type="button" onclick="calculate()">Submit</button>
 
-    <p class="alert"></p>
+    <p id="total">Total: <span id="total-amount">$0.00</span></p>
   </form>
-
-  <main></main>
   <script src="script.js"></script>
 </body>
 
