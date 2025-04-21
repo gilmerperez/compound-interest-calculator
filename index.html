@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
+  <title>Compound Interest Calculator</title>
+</head>
+
+<body>
+  <nav>
+    <h1>Compound Interest Calculator</h1>
+  </nav>
+
+  <form>
+    <label for="initial-deposit">Initial Deposit ($)</label>
+    <input type="number" id="initial-deposit" required>
+
+    <label for="contribution-amount">Contribution Amount ($)</label>
+    <input type="number" id="contribution-amount" required>
+
+    <label for="contribution-frequency">Contribution Frequency</label>
+    <select id="contribution-frequency">
+      <option value="annualy">Annualy</option>
+      <option value="monthly">Monthly</option>
+    </select>
+
+    <label for="years-of-growth">Years of Growth</label>
+    <input type="number" id="years-of-growth" required>
+
+    <label for="estimated-rate-of-return">Estimated Rate of Return (%)</label>
+    <input type="number" id="estimated-rate-of-return" required>
+
+    <label for="compound-frequency">Compound Frequency</label>
+    <select id="compound-frequency" required>
+      <option value="annualy">Annualy</option>
+      <option value="monthly">Monthly</option>
+    </select>
+
+    <button type="button" onclick="calculate()">Submit</button>
+
+    <p class="alert"></p>
+  </form>
+
+  <main></main>
+  <script src="script.js"></script>
+</body>
+
+</html>
