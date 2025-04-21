@@ -2,11 +2,11 @@ function calculate() {
   // Get initial values
   let initialDeposit = Number(document.getElementById("initial-deposit").value);
   let contributionAmount = Number(document.getElementById("contribution-amount").value);
-  const contributionFrequency = document.getElementById("contribution-frequency");
+  let contributionFrequency = document.getElementById("contribution-frequency");
   let yearsOfGrowth = Number(document.getElementById("years-of-growth").value);
   let rateOfReturn = Number(document.getElementById("rate-of-return").value);
-  const compoundFrequency = document.getElementById("compound-frequency");
-  const totalAmount = document.getElementById("total-amount");
+  let compoundFrequency = document.getElementById("compound-frequency");
+  let totalAmount = document.getElementById("total-amount");
 
   // If initial values are incorrect, zero them out
   if (initialDeposit < 0 || isNaN(initialDeposit)) {
