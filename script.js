@@ -17,12 +17,6 @@ function calculate() {
     contributionAmount = 0;
   }
 
-  if (contributionFrequency.value === "monthly") {
-    contributionFrequency = 12;
-  } else {
-    contributionFrequency = 1;
-  }
-
   if (yearsOfGrowth < 0 || isNaN(yearsOfGrowth)) {
     yearsOfGrowth = 0;
   }
@@ -31,30 +25,29 @@ function calculate() {
     rateOfReturn = 0;
   }
 
+  // Convert frequency values into numbers
+  if (contributionFrequency.value === "monthly") {
+    contributionFrequency = 12;
+  } else {
+    contributionFrequency = 1;
+  }
+
   if (compoundFrequency.value === "daily") {
     compoundFrequency = 365;
   } else {
     compoundFrequency = 12;
   }
 
-  if (rateOfReturn < 0 || isNaN(rateOfReturn)) {
-    rateOfReturn = 0;
-  }
-
   // Convert Rate of Return to decimal
   const r = rateOfReturn / 100;
 
-  // Calculate Result
-  // Part 1: Future value of the initial deposit
-  const futureValueInitial =
-    initialDeposit *
-    Math.pow(1 + r / compoundFrequency, compoundFrequency * yearsOfGrowth);
+  // Future value of the initial deposit
+  const futureValueInitial = initialDeposit * Math.pow(1 + r / compoundFrequency, compoundFrequency * yearsOfGrowth);
 
-  // Part 2: Future value of the contributions
   // First calculate the effective periodic rate
   const periodicRate = r / compoundFrequency;
 
-  // Number of total periods
+  // Times it by the number of years
   const totalPeriods = compoundFrequency * yearsOfGrowth;
 
   // Contribution per compounding period (adjust if contribution frequency differs from compounding frequency)
@@ -66,13 +59,12 @@ function calculate() {
     console.warn("Contribution frequency doesn't match compounding frequency - using simple approximation");
   }
 
-  const futureValueContributions =
-    contributionPerPeriod *
-    ((Math.pow(1 + periodicRate, totalPeriods) - 1) / periodicRate);
+  const futureValueContributions = contributionPerPeriod * ((Math.pow(1 + periodicRate, totalPeriods) - 1) / periodicRate);
 
-  // Total future value
+  // Final result
   const result = futureValueInitial + futureValueContributions;
 
+  // Format result
   totalAmount.textContent = result.toLocaleString(undefined, {
     style: "currency",
     currency: "USD",
