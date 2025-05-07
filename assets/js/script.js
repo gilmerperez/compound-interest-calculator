@@ -1,4 +1,9 @@
-function calculate() {
+const submitBtn = document.getElementById("submitBtn");
+const total = document.getElementById("total");
+
+function calculate(event) {
+  // Stop form from refreshing on submit
+  event.preventDefault();
   // Get initial values
   let initialDeposit = Number(document.getElementById("initial-deposit").value);
   let contributionAmount = Number(document.getElementById("contribution-amount").value);
@@ -8,19 +13,16 @@ function calculate() {
   let compoundFrequency = document.getElementById("compound-frequency");
   let totalAmount = document.getElementById("total-amount");
 
-  // If initial values are incorrect, zero them out
+  // If initial values are less than 0 or not numbers, zero them out
   if (initialDeposit < 0 || isNaN(initialDeposit)) {
     initialDeposit = 0;
   }
-
   if (contributionAmount < 0 || isNaN(contributionAmount)) {
     contributionAmount = 0;
   }
-
   if (yearsOfGrowth < 0 || isNaN(yearsOfGrowth)) {
     yearsOfGrowth = 0;
   }
-
   if (rateOfReturn < 0 || isNaN(rateOfReturn)) {
     rateOfReturn = 0;
   }
@@ -31,7 +33,6 @@ function calculate() {
   } else {
     contributionFrequency = 1;
   }
-
   if (compoundFrequency.value === "daily") {
     compoundFrequency = 365;
   } else {
@@ -42,26 +43,26 @@ function calculate() {
   const r = rateOfReturn / 100;
 
   // Future value of the initial deposit
-  const futureValueInitial = initialDeposit * Math.pow(1 + r / compoundFrequency, compoundFrequency * yearsOfGrowth);
+  const futureValueInitial =
+    initialDeposit *
+    Math.pow(1 + r / compoundFrequency, compoundFrequency * yearsOfGrowth);
 
-  // First calculate the effective periodic rate
+  // Calculate effective periodic rate
   const periodicRate = r / compoundFrequency;
 
-  // Times it by the number of years
+  // Times it by number of years
   const totalPeriods = compoundFrequency * yearsOfGrowth;
 
-  // Contribution per compounding period (adjust if contribution frequency differs from compounding frequency)
+  // Contribution per compounding period
   let contributionPerPeriod = contributionAmount;
   if (contributionFrequency !== compoundFrequency) {
-    // If contributions are made at a different frequency than compounding
-    // For simplicity, we'll assume contributions are made at the same frequency as compounding
-    // In a more advanced version, you'd need to adjust for this
-    console.warn("Contribution frequency doesn't match compounding frequency - using simple approximation");
+    console.warn(
+      "Contribution frequency doesn't match compounding frequency - using simple approximation"
+    );
   }
 
   const futureValueContributions = contributionPerPeriod * ((Math.pow(1 + periodicRate, totalPeriods) - 1) / periodicRate);
 
-  // Final result
   const result = futureValueInitial + futureValueContributions;
 
   // Format result
@@ -71,4 +72,9 @@ function calculate() {
     minimumFractionDigits: 2,
     maximumFractionDigits: 2,
   });
+
+  // Remove CSS class to show amount
+  total.classList.remove("hidden");
 }
+
+submitBtn.addEventListener("click", calculate);
