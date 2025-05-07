@@ -56,9 +56,7 @@ function calculate(event) {
   // Contribution per compounding period
   let contributionPerPeriod = contributionAmount;
   if (contributionFrequency !== compoundFrequency) {
-    console.warn(
-      "Contribution frequency doesn't match compounding frequency - using simple approximation"
-    );
+    console.warn("Contribution frequency doesn't match compounding frequency - using simple approximation");
   }
 
   const futureValueContributions = contributionPerPeriod * ((Math.pow(1 + periodicRate, totalPeriods) - 1) / periodicRate);

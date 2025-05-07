@@ -12,9 +12,7 @@
 </head>
 
 <body>
-  <!-- Title -->
   <h1>COMPOUND INTEREST CALCULATOR</h1>
-  <!-- Main Form -->
   <form>
     <!-- Initial Deposit -->
     <label for="initial-deposit">Initial Deposit</label>
@@ -26,9 +24,9 @@
     <label for="contribution-frequency">Contribution Frequency</label>
     <select id="contribution-frequency" required>
       <option value="monthly">Monthly</option>
-      <option value="annualy">Annualy</option>
+      <option value="annually">Annualy</option>
     </select>
-    <!-- Year sof Growth -->
+    <!-- Years of Growth -->
     <label for="years-of-growth">Years of Growth</label>
     <input type="number" id="years-of-growth" required>
     <!-- Rate of Return -->
@@ -45,7 +43,6 @@
     <!-- Total Amount -->
     <p id="total" class="hidden">Total: <span id="total-amount">$0.00</span></p>
   </form>
-  <!-- JavaScript File -->
   <script src="./assets/js/script.js"></script>
 </body>
 
